@@ -1,0 +1,30 @@
+.header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  color: $font-light-color;
+  background-color: $accent-dark-color;
+}
+
+.header__inner {
+  display: flex;
+}
+
+.logo {
+  line-height: 0;
+}
+
+.menu {
+  @include list-reset;
+  display: flex;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: $font-secondary-light-color;
+}
+
+.menu__item {
+  &.active {
+    color: $font-light-color;
+  }
+}

@@ -1,0 +1,43 @@
+$body-color: #ebedf2;
+$base-bg-color: #ffffff;
+$secondary-bg-color: #f7f8f9;
+$font-base-color: #2c3e50;
+$font-light-color: #ffffff;
+$font-secondary-light-color: rgba($font-light-color, 0.7);
+$font-secondary-color: rgba($font-base-color, 0.54);
+$accent-color: #08d6b7;
+$accent-dark-color: #2a353f;
+
+$shadow-1: 0px 2px 3px 0px rgba($accent-dark-color, 0.1);
+$shadow-2: 0px 1px 2px 0px rgba($accent-dark-color, 0.24);
+$border-radius: 4px;
+
+$font-family: 'Roboto', Arial, sans-serif;
+
+$content-width: 1140px;
+
+@mixin outliner { // temp
+  outline: 1px dotted blue;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+@mixin panel {
+  background-color: $base-bg-color;
+  border-bottom: 1px solid rgba($font-base-color, 0.1);
+}
+
+@mixin round-corners-bottom {
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
+@mixin round-corners-top {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}

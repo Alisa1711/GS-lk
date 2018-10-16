@@ -1,0 +1,15 @@
+.toolbar  
+  input.input(
+    type="search"
+    placeholder="Поиск"
+    )
+  if toolbarBtn
+    each button in toolbarBtn
+      a.button(href='javascript:void(0);')= button
+  .filter
+    span.filter__current Диапазон
+      ul.filter__list
+        - var ranges = ['Месяц', 'Квартал', 'Год', 'Диапазон']
+        each item in ranges
+          li.filter__item= item
+  

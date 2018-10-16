@@ -1,0 +1,151 @@
+$order-date-width: 128px;
+$order-h-padding: 64px;
+
+.order {
+  @include panel;
+  box-shadow: $shadow-1;
+
+  transition: margin 0.2s;
+
+  &--done,
+  &--canceled {
+    .order__top {
+      position: relative;
+    }
+    .order__top::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 24px;
+      width: 24px;
+      height: 24px;
+
+      background-color: $font-base-color;
+      opacity: 0.54;
+
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.order__top {
+  display: flex;
+
+  padding-top: 20px;
+  padding-left: $order-h-padding;
+  padding-right: $order-h-padding;
+  padding-bottom: 20px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary-bg-color;
+  }
+}
+
+.order__date {
+  width: 128px;
+}
+
+.order__workers,
+.order__duration {
+  margin-left: 24px;
+}
+
+.order__summ {
+  margin-left: auto;
+  font-weight: 500;
+}
+
+.order__documents {
+  @include list-reset;
+  display: none;
+  flex-wrap: wrap;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: $order-date-width + $order-h-padding - 8px;
+  padding-right: 165px;
+
+  font-size: 14px;
+}
+
+.order__document-item {
+  margin: 8px;
+
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.order__document-link {
+  display: block;
+
+  padding-left: 16px;
+  padding-right: 16px;
+
+  background-color: $secondary-bg-color;
+  border-radius: $border-radius;
+}
+
+.order__footer {
+  position: relative;
+  display: none;
+  align-items: center;
+
+  padding-left: $order-h-padding;
+  padding-right: $order-h-padding;
+
+  min-height: 40px;
+
+  background-color: $secondary-bg-color;
+  @include round-corners-bottom;
+}
+
+.order__cancel {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.order__action-button {
+  position: absolute;
+  top: 0;
+  right: $order-h-padding;
+
+  transform: translateY(-50%);
+}
+
+.order__phone,
+.order__workers,
+.order__duration,
+.order__penny {
+  display: none;
+  color: $font-secondary-color;
+}
+
+.order--expanded {
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  border-radius: $border-radius;
+
+  .order__top {
+    padding-top: 24px;
+    padding-bottom: 8px;
+
+    @include round-corners-top;
+  }
+  .order__time {
+    display: block;
+    color: $font-secondary-color;
+  }
+  .order__phone,
+  .order__workers,
+  .order__duration,
+  .order__penny {
+    display: inline-block;
+  }
+  .order__documents,
+  .order__footer {
+    display: flex;
+  }
+}

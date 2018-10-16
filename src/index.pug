@@ -1,0 +1,44 @@
+extends pug/layout
+prepend title
+  - var title = 'Заказы'
+prepend toolbar
+  - var toolbarBtn = ['Счет', 'Акт-сверка']
+block content
+  each order in orders
+    .order(class='order--'+ order.status)    
+      .order__top
+        .order__date
+          span.order__day= order.date
+          |
+          |
+          span.order__time= order.time
+          
+        .order__info          
+          .order__address= order.address
+          span.order__phone= order.phone
+          if order.workers
+            span.order__workers= order.workers
+          if order.duration
+            span.order__duration= order.duration
+        if order.summ
+          .order__summ        
+            span.order__rublies= order.summ
+            |
+            |
+            span.order__penny= order.penny    
+      if order.documents
+        ul.order__documents
+          each item in order.documents
+            li.order__document-item
+              +link(item)(class="order__document-link")
+          li.order__document-item
+            +link('Скачать все')(class="order__docs-download")
+          li.order__document-item
+            +link('Оригиналы')(class="order__docs-originals")        
+      .order__footer
+        if order.cancel
+          button.button.order__cancel Отменить заказ
+        button.button.button--primary.order__action-button(
+          type = "button"
+          title= statusMap[order.status]
+          )

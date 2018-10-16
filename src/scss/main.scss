@@ -1,0 +1,12 @@
+@import "utils/normalize.scss";
+@import "utils/variables_and_mixins.scss";
+@import "utils/global.scss";
+
+@import "blocks/button.scss";
+
+@import "blocks/header.scss";
+@import "blocks/order.scss";
+
+.hidden {
+  display: none;
+}

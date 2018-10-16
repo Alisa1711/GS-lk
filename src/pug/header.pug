@@ -1,0 +1,25 @@
+header.header
+  .header__inner.wrapper
+    a.logo(href="javascript:void(0);")
+      img(
+        src="img/logo.svg"
+        width="202"
+        height="48"
+        alt="Грузчиков Севрис"
+        )
+    ul.menu
+      each item in mainMenu
+        li.menu__item(class=(item === title ? 'active' : undefined))
+          a.menu__link(href="javascript:void(0);")= item
+    +link('Добавить заказ').button.header__button
+    .dropdown
+      button.button.dropdown__button(type="button") ООО Рога и копыта
+      ul.dropdown__list.hidden
+        each item in accountMenu
+          li.dropdown__item
+            span.dropdown__title= item.title
+            span.dropdown__value= item.value
+            if item.link
+              +link(item.link).dropdown__link
+        li.dropdown__item 
+          +link('Выйти')
