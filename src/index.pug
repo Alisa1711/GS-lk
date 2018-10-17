@@ -5,7 +5,7 @@ prepend toolbar
   - var toolbarBtn = ['Счет', 'Акт-сверка']
 block content
   each order in orders
-    .order(class='order--'+ order.status)    
+    .order(class=(order.status === 'done' || order.status === 'canceled') ? "order--"+ order.status : undefined)
       .order__top
         .order__date
           span.order__day= order.date
@@ -36,9 +36,10 @@ block content
           li.order__document-item
             +link('Оригиналы')(class="order__docs-originals")        
       .order__footer
-        if order.cancel
+        if (order.status === 'in-progress' || order.status === 'approved')
           button.button.order__cancel Отменить заказ
         button.button.button--primary.order__action-button(
           type = "button"
           title= statusMap[order.status]
           )
+          +icon("close")

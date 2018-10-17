@@ -13,18 +13,23 @@ $order-h-padding: 64px;
       position: relative;
     }
     .order__top::before {
-      content: "";
       position: absolute;
       top: 50%;
       left: 24px;
       width: 24px;
       height: 24px;
 
-      background-color: $font-base-color;
       opacity: 0.54;
 
       transform: translateY(-50%);
     }
+  }
+
+  &--done .order__top::before {
+    content: url("../img/check.svg");
+  }
+  &--canceled .order__top::before {
+    content: url("../img/close.svg");
   }
 }
 

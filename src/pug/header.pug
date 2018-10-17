@@ -14,6 +14,9 @@ header.header
     +link('Добавить заказ').button.header__button
     .dropdown
       button.button.dropdown__button(type="button") ООО Рога и копыта
+      +icon('close')
+      +icon('account')
+      +icon('arrow_downward')
       ul.dropdown__list.hidden
         each item in accountMenu
           li.dropdown__item

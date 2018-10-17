@@ -1,2 +1,6 @@
 mixin link(name)
   a(class!=attributes.class href='javascript:void(0);')= name
+  
+mixin icon(name)
+  svg(class="icon")
+    use(xlink:href="img/sprite.svg#" + name)

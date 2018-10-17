@@ -9,10 +9,14 @@
 }
 
 .button--primary {
+  box-sizing: border-box;
+
   min-width: 64px;
   height: 64px;
 
+  color: $font-light-color;
+
   background-color: $accent-color;
-  border-radius: 50%;
+  border-radius: 32px;
   box-shadow: $shadow-2;
 }
