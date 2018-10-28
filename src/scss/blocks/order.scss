@@ -49,7 +49,7 @@ $order-h-padding: 64px;
 }
 
 .order__date {
-  width: 128px;
+  width: 192px;
 }
 
 .order__workers,
@@ -116,7 +116,7 @@ $order-h-padding: 64px;
   top: 0;
   right: $order-h-padding;
 
-  transform: translateY(-50%);
+  margin-top: -32px;
 }
 
 .order__phone,

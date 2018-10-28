@@ -2,27 +2,33 @@ header.header
   .header__inner.wrapper
     a.logo(href="javascript:void(0);")
       img(
+        class="logo__img"
         src="img/logo.svg"
-        width="202"
+        width="200"
         height="48"
         alt="Грузчиков Севрис"
         )
-    ul.menu
-      each item in mainMenu
-        li.menu__item(class=(item === title ? 'active' : undefined))
-          a.menu__link(href="javascript:void(0);")= item
-    +link('Добавить заказ').button.header__button
-    .dropdown
-      button.button.dropdown__button(type="button") ООО Рога и копыта
-      +icon('close')
-      +icon('account')
-      +icon('arrow_downward')
-      ul.dropdown__list.hidden
+    nav.header__nav
+      ul.nav
+        each item in mainMenu
+          li.nav__item(class=(item === title ? 'active' : undefined))
+            a.nav__link(href="javascript:void(0);")= item
+    a.button.button--stroke.button--icon_left.header__button(href='javascript:void(0);') Добавить заказ 
+      +icon("plus")(class="button__icon")
+    .account-menu
+      button.button.button--icon_right.account-menu__button(type="button") ООО Рога и копыта
+        +icon("menu-down")(class="button__icon")
+      ul.account-menu__list#account-menu__list
+        //- li.account-menu__header ООО Рога и копыта
+        //-     +icon("menu-up")(class="account-menu__icon")
+        li
+          button.button.button--icon_right.account-menu__button(type="button") ООО Рога и копыта
+            +icon("menu-up")(class="button__icon")
         each item in accountMenu
-          li.dropdown__item
-            span.dropdown__title= item.title
-            span.dropdown__value= item.value
+          li.account-menu__item
+            span.account-menu__title= item.title
+            span.account-menu__value= item.value
             if item.link
-              +link(item.link).dropdown__link
-        li.dropdown__item 
-          +link('Выйти')
+              +link(item.link).account-menu__link
+        li
+          +link('Выйти')(class="account__logout account-menu__link")

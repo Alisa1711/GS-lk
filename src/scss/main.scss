@@ -1,13 +1,26 @@
 @import "utils/normalize.scss";
 @import "utils/variables_and_mixins.scss";
 @import "utils/global.scss";
+@import "utils/animations.scss";
 
+@import "blocks/icon.scss";
 @import "blocks/button.scss";
-@import "blocks/sprite.scss";
+@import "blocks/input.scss";
+@import "blocks/nice-select.scss";
 
 @import "blocks/header.scss";
+@import "blocks/toolbar.scss";
+@import "blocks/account.scss";
 @import "blocks/order.scss";
 
-.hidden {
-  display: none;
+@import "blocks/table.scss";
+@import "blocks/documents.scss";
+@import "blocks/payments.scss";
+
+// .hidden {
+//   display: none;
+// }
+
+.text-align-r {
+  text-align: right;
 }

@@ -1,0 +1,73 @@
+.account-menu {
+  position: relative;
+  z-index: 1;
+}
+
+.account-menu__list {
+  @include list-reset;
+
+  display: none;
+
+  position: absolute;
+  top: -8px;
+  right: 0;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  color: $font-base-color;
+
+  background-color: $base-bg-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow-menu;
+}
+
+.account-menu__button {
+  width: 100%;
+  text-align: left;
+
+  .button__icon {
+    opacity: 0.24;
+  }
+
+  &:hover {
+    background: rgba(0,0,0, 0.12);
+  }
+}
+
+.account-menu__icon {
+  position: absolute;
+  right: 12px;
+
+  color: $font-secondary-color;
+}
+
+.account-menu__item {
+  padding: 4px 24px;
+
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.account-menu__title {
+  display: block;
+
+  font-size: 13px;
+  color: $font-secondary-color;
+}
+
+.account-menu__value {
+  display: block;
+}
+
+.account-menu__link {
+  color: $accent-color;
+}
+
+.account__logout {
+  display: block;
+  padding: 12px 24px;
+
+  font-weight: 500;
+}

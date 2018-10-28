@@ -1,0 +1,80 @@
+.input {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $shadow-2;
+}
+
+.checkbox {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18px;
+  height: 18px;
+
+  color: $font-light-color;
+  font-size: 9px;
+
+  border: 2px solid $checkbox-color;
+  border-radius: $checkbox-border-radius;
+
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    border-color: $checkbox-color-hover;
+    @include transition;
+  }
+
+  input[type="checkbox"]:checked + &,
+  input[type="checkbox"]:indeterminate + & {
+    border: none;
+    background-color: $accent-color;
+    @include transition;
+
+    &:hover {
+      background-color: $accent-color-hover;
+      @include transition;
+    }
+  }
+
+  input[type="checkbox"]:checked + & {
+    .checkbox__icon {
+      width: 1.5em;
+      height: 1.5em;
+      @include transition;
+    }
+  }
+
+  input[type="checkbox"]:indeterminate + & {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background-color: $base-bg-color;
+    }
+  }
+}
+
+.checkbox__icon {
+  width: 0;
+  height: 0;
+  @include transition;
+}
+
+.checkbox--indeterminate {
+  position: relative;
+  border: none;
+  background-color: $accent-color;
+  @include transition;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: $base-bg-color;
+  }
+}

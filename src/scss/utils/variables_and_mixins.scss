@@ -1,20 +1,39 @@
 $body-color: #ebedf2;
+
 $base-bg-color: #ffffff;
 $secondary-bg-color: #f7f8f9;
+$secondary-bg-color-hover: darken($secondary-bg-color, 2);
+
 $font-base-color: #2c3e50;
-$font-light-color: #ffffff;
-$font-secondary-light-color: rgba($font-light-color, 0.7);
 $font-secondary-color: rgba($font-base-color, 0.54);
+$font-light-color: $base-bg-color;
+$font-secondary-light-color: rgba($font-light-color, 0.7);
+
+$checkbox-color: rgba($font-base-color, 0.24);
+$checkbox-color-hover: rgba($font-base-color, 0.54);
+$checkbox-border-radius: 2px;
+
 $accent-color: #08d6b7;
+$accent-color-hover: darken($accent-color, 5);
 $accent-dark-color: #2a353f;
 
 $shadow-1: 0px 2px 3px 0px rgba($accent-dark-color, 0.1);
 $shadow-2: 0px 1px 2px 0px rgba($accent-dark-color, 0.24);
+$shadow-menu: 0px 2px 20px 0px rgba($accent-dark-color, 0.12);
 $border-radius: 4px;
 
 $font-family: 'Roboto', Arial, sans-serif;
 
 $content-width: 1140px;
+
+
+@mixin transition {
+  transition: all 0.15s ease-in-out;
+}
+
+@mixin transition-custom($time) {
+  transition: all $time ease-in-out;
+}
 
 @mixin outliner { // temp
   outline: 1px dotted blue;
@@ -25,6 +44,15 @@ $content-width: 1140px;
   padding: 0;
 
   list-style: none;
+}
+
+@mixin button-reset {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
 }
 
 @mixin panel {

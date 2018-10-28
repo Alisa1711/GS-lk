@@ -1,0 +1,43 @@
+extends pug/layout
+prepend title
+  - var title = "Документы"
+block content
+  .documents
+    .documents__actions
+      button.button.button--primary.button--action.button-hide.documents__download-all(
+        title="Скачать выбранное"
+        )
+        +icon("download").button__icon
+      +link('Оригиналы')(class="order__docs-originals")
+    table.table
+      thead.table__header.sort
+        tr
+          th.table__header-cell.table__cell--checkbox
+            input(
+              class="visually-hidden select-all"
+              type="checkbox"
+              id="all-documents"
+            )
+            label.checkbox(for="all-documents")
+              +icon("check").checkbox__icon
+          th.table__header-cell.sort__item.sort__item--active.documents__date Дата
+          th.table__header-cell.sort__item.documents__number.text-align-r Номер
+          th.table__header-cell.sort__item.documents__type Тип документа
+          th.table__header-cell.sort__item.text-align-r Сумма
+          th.table__header-cell
+      each doc in documents
+        tr.table__row.documents__item(title="Скачать")
+          td.table__cell
+            input(
+              class="visually-hidden select-item"
+              type="checkbox"
+              id= doc.number
+            )
+            label.checkbox(for= doc.number)
+              +icon("check").checkbox__icon
+          td.table__cell= doc.date
+          td.table__cell.text-align-r= doc.number
+          td.table__cell.documents__type= doc.type
+          td.table__cell.text-align-r= doc.summ
+          td.table__cell.text-align-r
+            +icon("download").icon--unfocused.documents__download-icon

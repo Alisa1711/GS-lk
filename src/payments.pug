@@ -1,0 +1,18 @@
+extends pug/layout
+prepend title
+  - var title = "Оплаты"
+block content
+  .payments
+    table.table
+      thead.table__header
+        tr
+          th.table__header-cell.payments__date.active Дата
+          th.table__header-cell.payments__number.text-align-r Номер
+          th.table__header-cell.payments__summ.text-align-r Сумма
+          th.table__header-cell.payments__descr Назначение платежа
+      each payment in payments
+        tr.table__row.table__row--noborder
+          td.table__cell.payments__date= payment.date
+          td.table__cell.text-align-r= payment.number
+          td.table__cell.text-align-r= payment.summ
+          td.table__cell.payments__descr= payment.descr

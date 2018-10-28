@@ -1,22 +1,81 @@
 .button {
+  box-sizing: border-box;
+  padding: 12px 24px;
+
   line-height: inherit;
   color: inherit;
+  white-space: nowrap;
 
   background-color: transparent;
   border: none;
+  border-radius: $border-radius;
 
   cursor: pointer;
+  @include transition;
+}
+
+.button--stroke {
+  padding: 10px 22px;
+
+  border: 2px solid $accent-color;
+}
+
+.button--icon_left,
+.button--icon_right {
+  position: relative;
+
+  .button__icon {
+    position: absolute;
+  }
+}
+
+.button--icon_left {
+  padding-left: 48px;
+
+  .button__icon {
+    left: 12px;
+  }
+}
+
+.button--icon_right {
+  padding-right: 48px;
+
+  .button__icon {
+    right: 12px;
+  }
 }
 
 .button--primary {
-  box-sizing: border-box;
-
-  min-width: 64px;
-  height: 64px;
-
   color: $font-light-color;
 
   background-color: $accent-color;
   border-radius: 32px;
   box-shadow: $shadow-2;
+
+  &:hover {
+    background-color: $accent-color-hover;
+    @include transition;
+  }
+}
+
+.button--action {
+  padding: 0;
+
+  min-width: 64px;
+  height: 64px;
+
+  font-size: 21px;
+
+  animation: scale-grow 0.2s ease-in-out;
+
+  // .button__icon {
+  //   animation: scale-grow 0.15s ease-out;
+  //   animation-delay: 0.2s;
+  //   animation-fill-mode: forwards;
+  // }
+}
+
+.button-hide {
+  animation: scale-low 0.2s ease-in-out;
+  animation-fill-mode: forwards;
 }

@@ -1,4 +1,6 @@
-include utils/data
+include data/data
+include data/documents
+include data/payments
 include utils/mixins
 doctype html
 html(lang="ru")
@@ -22,10 +24,10 @@ html(lang="ru")
       title= title
   body
     include header
-    block toolbar
-      include toolbar
     main
-      .wrapper      
+      .wrapper 
+        block toolbar
+          include toolbar
         block content
     include footer
     block modals
@@ -33,3 +35,4 @@ html(lang="ru")
       script(src="js/jquery-3.3.1.min.js")
       script(src="js/main.js")
       script(src="js/svg4everybody.js")
+      script(src="js/jquery.nice-select.min.js")

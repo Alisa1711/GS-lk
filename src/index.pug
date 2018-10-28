@@ -38,7 +38,7 @@ block content
       .order__footer
         if (order.status === 'in-progress' || order.status === 'approved')
           button.button.order__cancel Отменить заказ
-        button.button.button--primary.order__action-button(
+        button.button.button--primary.button--action.order__action-button(
           type = "button"
           title= statusMap[order.status]
           )

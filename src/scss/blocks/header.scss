@@ -8,13 +8,23 @@
 
 .header__inner {
   display: flex;
+  align-items: center;
 }
 
 .logo {
   line-height: 0;
 }
 
-.menu {
+.logo__img {
+  width: 200px;
+  height: 48px;
+}
+
+.header__nav {
+  margin-left: 56px;
+}
+
+.nav {
   @include list-reset;
   display: flex;
 
@@ -23,8 +33,16 @@
   color: $font-secondary-light-color;
 }
 
-.menu__item {
+.nav__item {
+  & + & {
+    margin-left: 32px;
+  }
   &.active {
     color: $font-light-color;
   }
+}
+
+.header__button {
+  margin-left: auto;
+  margin-right: 16px;
 }

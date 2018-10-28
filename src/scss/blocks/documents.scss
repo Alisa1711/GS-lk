@@ -1,0 +1,59 @@
+.documents {
+  position: relative;
+}
+
+.documents__item {
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    background-color: $secondary-bg-color;
+
+    & .table__cell,
+    & + .documents__item .table__cell {
+      border-color: transparent;
+    }
+  }
+
+  &:hover {
+    .documents__download-icon {
+      transform: scale(1);
+      @include transition;
+    }
+  }
+
+  &.active:hover {
+    background-color: $secondary-bg-color-hover;
+  }
+}
+
+.documents__actions {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  opacity: 0;
+  @include transition;
+  transition-delay: 0.2s;
+
+  &.active {
+    opacity: 1;
+    @include transition;
+  }
+}
+
+.documents__type {
+  padding-left: 128px;
+}
+
+.documents__date {
+  width: 144px;
+}
+
+.documents__number {
+  width: 122px;
+}
+
+.documents__download-icon {
+  transform: scale(0);
+  @include transition;
+}

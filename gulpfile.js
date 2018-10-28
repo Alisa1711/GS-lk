@@ -27,14 +27,13 @@ const path = {
     js: 'build/js',
     css: 'build/css',
     img: 'build/img',
-    sprite: 'build/img/sprite.svg'
   },
   src: {
     img: {
       root: 'src/img/',
-      files: 'src/img/**.*'
+      files: 'src/img/**/**.*'
     },
-    icons: 'src/img/icons/*.svg',
+    icons: 'src/svg/**/*.svg',
     js: {
       main: 'src/js/main.js',
       extends: 'src/js/extends/**/*.js'
@@ -49,14 +48,15 @@ const path = {
     js: 'src/js/**/*.js',
     pug: 'src/**/*.pug',
     scss: 'src/scss/**/*.scss',
-    img: 'src/img/**.*',
-    icons: 'src/img/icons/*.svg'
+    img: 'src/img/**/**.*',
+    icons: 'src/svg/**/*.svg'
   }
 };
 
 const serverConfig = {
   server: {
-    baseDir: path.build.root
+    baseDir: path.build.root,
+    directory: true
   },
   port: 3000,
   notify: false
@@ -91,7 +91,7 @@ gulp.task('scss', () => gulp.src(path.src.scss.main)
   .pipe(gulp.dest(path.build.css))
   .pipe(refresh({ stream: true })));
 
-gulp.task('svg', () => gulp.src('src/img/icons/*.svg')
+gulp.task('svg', () => gulp.src(path.src.icons)
   .pipe(svgmin())
   .pipe(cheerio({
     run($) {
@@ -104,13 +104,7 @@ gulp.task('svg', () => gulp.src('src/img/icons/*.svg')
   .pipe(svgSprite({
     mode: {
       symbol: {
-        sprite: '../sprite.svg',
-        render: {
-          scss: {
-            dest: '../../scss/blocks/sprite.scss',
-            template: path.src.scss.template
-          }
-        }
+        sprite: '../sprite.svg'
       }
     }
   }))
@@ -139,11 +133,11 @@ gulp.task('build', gulp.series(
 ));
 
 gulp.task('watch', () => {
-  watch(path.watch.pug).on('change', gulp.series('html'));
-  watch(path.watch.scss).on('change', gulp.series('scss'));
-  watch(path.watch.js).on('change', gulp.series('js', 'js-extends'));
-  watch(path.watch.img).on('change', gulp.series('img'));
-  watch(path.watch.icons).on('change', gulp.series('svg'));
+  watch(path.watch.pug, gulp.series('html'));
+  watch(path.watch.scss, gulp.series('scss'));
+  watch(path.watch.js, gulp.series('js', 'js-extends'));
+  watch(path.watch.img, gulp.series('img'));
+  watch(path.watch.icons, gulp.series('svg'));
 });
 
 gulp.task('run', gulp.series(
