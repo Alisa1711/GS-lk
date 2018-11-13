@@ -1,0 +1,59 @@
+extends pug/layout
+prepend title
+  - var title = 'Заказы'
+block content
+  // сообщение об ошибке. добавляется .active
+  each order in orders
+    .order(class=(order.status === 'done' || order.status === 'canceled') ? "order--"+ order.status : undefined)
+      .order__top
+        .order__date
+          span.order__day= order.date
+          |
+          |
+          span.order__time= order.time
+          
+        .order__info          
+          .order__address= order.address
+          span.order__phone= order.phone
+          if order.workers
+            span.order__workers= order.workers
+          if order.duration
+            span.order__duration= order.duration
+        if order.summ
+          .order__summ.summ__rubles        
+            span= order.summ
+            |
+            |
+            span.order__penny.summ__penny= order.penny    
+      if order.documents
+        ul.order__documents
+          each item in order.documents
+            li.order__document-item
+              +link(item)(class="order__document-link")
+          li.order__document-item
+            +link('Скачать все')(class="order__docs-download")
+          li.order__document-item
+            a.order__docs-originals(
+              href='javascript:void(0);'
+              data-modal="#modal-originals"
+            )
+              +icon("document").icon--unfocused
+              .
+                Оригиналы      
+      .order__footer
+        if (order.status === 'in-progress' || order.status === 'approved')
+          button.button.order__cancel(
+            data-modal="#modal-cancel-order"
+            ) Отменить заказ
+        if (order.status === "in-progress")
+          button.button.button--primary.button--action.order__action-button(
+            type = "button"
+            title= statusMap[order.status]
+            )
+            +icon("pencil")
+        else
+          button.button.button--primary.button--action.order__action-button(
+          type = "button"
+          title= statusMap[order.status]
+          )
+            +icon("replay")

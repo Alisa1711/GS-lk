@@ -4,3 +4,16 @@ mixin link(name)
 mixin icon(name)
   svg(class="icon" class!=attributes.class)
     use(xlink:href="img/sprite.svg#" + name)
+
+mixin checkbox-label(id, label, inputClass, checked)
+  .labeled-checkbox(class!=attributes.class)
+    input(
+      id= id
+      type="checkbox"
+      name= id
+      class= inputClass
+      checked= checked
+      )
+    span.checkbox
+      +icon("check").checkbox__icon
+    label(for= id).checkbox-label= label

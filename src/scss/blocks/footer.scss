@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 32px;
+  padding-bottom: 24px;
+}
+
+.footer__phone {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.footer__phone-icon {
+  margin-right: 12px;
+  font-size: 16px;
+  color: $font-secondary-color;
+}
+
+.footer__time {
+  margin-left: 36px;
+  display: block;
+  font-size: 14px;
+  color: $font-secondary-color;
+}

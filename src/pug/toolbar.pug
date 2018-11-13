@@ -1,15 +1,33 @@
-.toolbar  
-  input.input.input--search.toolbar__search(
-    type="search"
-    placeholder="Поиск"
-    )
-  if toolbarBtn
-    each button in toolbarBtn
-      a.button(href="javascript:void(0);")= button
-  select.filter.nice-select
-    - var ranges = ["Месяц", "Квартал", "Год", "Диапазон..."]
-      each item in ranges
-        option(
-        data-display=(item ==="Диапазон...") ? "23 фев – 14 май" : undefined
-        )= item
+.toolbar
+  .toolbar__inner
+    .toolbar__search.toolbar__item
+      +icon("magnify").toolbar__search-icon
+      input.input.toolbar__search-input(
+        type="search"
+        placeholder="Поиск"
+        )
+    if title === "Документы"
+      button.button.button--secondary.button--icon_left.toolbar__item(
+          data-modal="#modal-act"
+        )
+        +icon("plus").button__icon.button__icon--accent
+        .
+          Акт-сверки
+    if title === "Оплаты"
+      button.button.button--secondary.button--icon_left.toolbar__item(
+          data-modal="#modal-bill"
+        )
+        +icon("plus").button__icon.button__icon--accent
+        .
+          Счет
+      select.dropdown-button.toolbar__item.toolbar__documents
+        - var ranges = ["Все документы", "Акты", "Счета", "Счета-фактуры"]
+          each item in ranges
+            option= item
+    select.dropdown-button.toolbar__item.toolbar__filter-range
+      - var ranges = ["Месяц", "Квартал", "Год", "Диапазон..."]
+        each item in ranges
+          option(
+          data-display=(item ==="Диапазон...") ? "23 фев 17 – 14 май" : undefined
+          )= item
   

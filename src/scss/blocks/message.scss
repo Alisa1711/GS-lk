@@ -1,0 +1,23 @@
+.message {
+  display: none;
+  position: fixed;
+  top: 128px;
+  left: 50%;
+
+  padding: 18px 30px;
+
+  color: $font-light-color;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 24px;
+
+  background-color: rgba($font-base-color, 0.8);
+  border-radius: $border-radius;
+
+  transform: translateX(-50%);
+  z-index: 4;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,106 @@
+.login {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 976px / 1200px * 100%;
+  max-width: 976px;
+  min-height: 650px;
+
+  background-color: $base-bg-color;
+  box-shadow: $shadow-2;
+
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.login__content {
+  min-height: 520px;
+  padding-top: 36px;
+  padding-left: 586px;
+  padding-right: 100px;
+}
+
+.login__logo {
+  max-width: 200px;
+  max-height: 48px;
+}
+
+.login__title {
+  margin: 0;
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.login__form {
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+.login__form-group {
+  margin: 0;
+  width: 290px;
+
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.login__password-label {
+  display: flex;
+}
+
+.login__remember-me {
+  margin-top: 32px;
+}
+
+.login__submit {
+  margin-top: 40px;
+  min-width: 165px;
+}
+
+.login__bottom {
+  margin-top: -32px;
+
+  padding-top: 50px;
+  padding-left: 586px;
+  padding-right: 100px;
+  padding-bottom: 40px;
+
+  background-color: $secondary-bg-color;
+}
+
+.login__tip {
+  margin: 0;
+
+  color: $font-secondary-color;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.login__img {
+  position: absolute;
+  left: -135px;
+  bottom: 0;
+}
+
+.login__restore-password {
+  display: none;
+  .login__message {
+    display: none;
+  }
+}
+
+.login__restore-password--success {
+  .login__restore-password-form {
+    display: none;
+  }
+  .login__message {
+    display: block;
+  }
+}

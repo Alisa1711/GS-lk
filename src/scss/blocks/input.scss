@@ -1,7 +1,107 @@
 .input {
-  border: none;
+  box-sizing: border-box;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  height: 56px;
+  line-height: 56px;
+
+  color: inherit;
+
+  border: 1px solid rgba($font-secondary-color, 0.12);
   border-radius: $border-radius;
-  box-shadow: $shadow-2;
+  box-shadow: none;
+
+  transition: all 0.5s;
+
+  &:hover {
+    border-color: $font-secondary-color;
+    transition: all 0.5s;
+  }
+
+  &:focus, &:active {
+    border-color: $accent-color;
+    transition: all 0.5s;
+  }
+
+  &--textarea {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    line-height: 1.2;
+  }
+
+  &--error {
+    border: 1px solid #d6084c;
+  }
+}
+
+.input::-webkit-input-placeholder {
+  color: $font-secondary-color;
+}
+.input:-ms-input-placeholder {
+  color: $font-secondary-color;
+}
+.input::-ms-input-placeholder {
+  color: $font-secondary-color;
+}
+.input::-moz-placeholder {
+  color: $font-secondary-color;
+}
+.input::placeholder  {
+  color: $font-secondary-color;
+}
+
+.input--icon_left,
+.input--icon_right {
+  position: relative;
+
+  .input__icon {
+    position: absolute;
+    top: 16px;
+
+    width: 24px;
+    height: 24px;
+
+    opacity: 0.54;
+  }
+}
+
+.input--icon_left {
+  .input__icon {
+    left: 16px;
+  }
+
+  .input {
+    padding-left: 56px;
+  }
+}
+
+.input--icon_right {
+  .input__icon {
+    right: 16px;
+  }
+
+  .input {
+    padding-right: 56px;
+  }
+}
+
+.input--full-width {
+  width: 100%;
+}
+
+.input--date {
+  width: 210px;
+}
+
+.input--time {
+  margin-left: 10px;
+  width: 96px;
 }
 
 .checkbox {
@@ -14,7 +114,6 @@
   height: 18px;
 
   color: $font-light-color;
-  font-size: 9px;
 
   border: 2px solid $checkbox-color;
   border-radius: $checkbox-border-radius;
@@ -76,5 +175,48 @@
     width: 10px;
     height: 2px;
     background-color: $base-bg-color;
+  }
+}
+
+.labeled-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & + & {
+    margin-top: 16px;
+  }
+
+  .checkbox-label {
+    padding-left: 34px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .checkbox {
+    position: absolute;
+  }
+}
+
+.checkbox-input {
+  margin-top: 16px;
+}
+
+.checkbox-input__input {
+  margin-top: 16px;
+}
+
+.input-link {
+  margin-bottom: 10px;
+  margin-left: auto;
+
+  color: $font-secondary-color;
+  font-size: 14px;
+
+  @include transition;
+
+  &:hover {
+    color: $font-base-color;
+    @include transition;
   }
 }

@@ -1,0 +1,91 @@
+.add-order {
+  position: relative;
+  margin-top: 24px;
+  margin-bottom: 40px;
+
+  padding-top: 64px;
+
+  background-color: $base-bg-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow-2;
+
+  @include transition;
+}
+
+.add-order__img {
+  position: absolute;
+  right: -135px;
+  bottom: 0;
+}
+
+.add-order__title {
+  margin-top: 0;
+  margin-bottom: 40px;
+
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.add-order__form {
+  position: relative;
+  padding-left: 128px;
+  width: 536px;
+  z-index: 1;
+}
+
+.add-order__submit {
+  margin-top: 40px;
+}
+
+.add-order__footer {
+  margin-top: -32px;
+  height: 80px;
+  background-color: $secondary-bg-color;
+}
+
+.add-order__add-address {
+  display: none;
+  padding-left: 128px;
+  padding-bottom: 70px;
+  min-height: 650px;
+}
+
+.add-order__map {
+  width: 536px;
+  height: 390px;
+
+  background-image: url("../img/add-address__map.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.add-order__buttons {
+  margin-top: 24px;
+}
+
+.add-order__cancel-button {
+  margin-left: 24px;
+}
+
+.add-order--first-screen {
+
+  .form__address {
+    .add-order__map {
+      display: block;
+    }
+    .select-input {
+      display: none;
+    }
+  }
+
+  .form__phone{
+
+    .select-input__select {
+      display: none;
+    }
+
+    .select-input__close {
+      display: none;
+    }
+  }
+}

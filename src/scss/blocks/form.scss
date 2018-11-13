@@ -1,0 +1,102 @@
+.form__group {
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.form__group--date-time {
+  position: relative;
+}
+
+.form__group--narrow {
+  width: 316px;
+}
+
+.form__date-time {
+  display: flex;
+  align-items: center;
+
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.form__date-time-inputs {
+  display: flex;
+}
+
+.form__add-date {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  @include transition;
+
+  &:hover {
+    color: $accent-color;
+    @include transition;
+  }
+}
+
+.form__radio-group {
+  display: flex;
+
+  background-color: $secondary-bg-color;
+  border-radius: $border-radius;
+}
+
+.form__workers-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 56px;
+  color: $font-secondary-color;
+  border-radius: inherit;
+  cursor: pointer;
+  @include transition-custom(0.5s);
+
+  &:hover {
+    color: $font-base-color;
+    background-color: darken($secondary-bg-color, 4);
+    border-radius: 0;
+    @include transition-custom(0.5s);
+  }
+
+  input[type="radio"]:checked + & {
+    color: $font-base-color;
+    background-color: $base-bg-color;
+    box-shadow: $shadow-2;
+    @include transition-custom(0.2s);
+  }
+}
+
+.form__workers-toggle {
+  position: relative;
+  @include transition-custom(0.2s);
+}
+
+.form__workers-button,
+.form__workers-input {
+  position: absolute;
+  width: 88px;
+  height: 56px;
+}
+
+.form__workers-button {
+  &:hover {
+    color: $font-base-color;
+    background-color: darken($secondary-bg-color, 4);
+    border-radius: 0;
+    @include transition-custom(0.5s);
+  }
+}
+
+.form__workers-input {
+  display: none;
+}
+
+.form__address {
+  .add-order__map {
+    display: none;
+  }
+}

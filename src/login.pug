@@ -1,0 +1,83 @@
+include pug/utils/mixins
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      )
+    meta(
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+      )
+    block style
+      link(
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic"
+        )
+      link(rel="stylesheet" href="css/main.css")
+    title Вход в личный кабинет
+block content
+  .login
+    .login__content
+      img.login__logo(
+        src="img/logo--dark.svg"
+        width="200"
+        height="48"
+        alt="Грузчиков Сервис"
+      )      
+      form.login__form
+        p.login__title Личный кабинет
+        p.login__form-group
+          label.label(for="login") Логин
+          // класс ошибки input-error
+          input.input.input--full-width#login(
+            type="text"
+            name="login"
+          )
+        p.login__form-group
+          .login__password-label
+            label.label(for="password") Пароль
+            +link("Вспомнить пароль").input-link.restore-password
+          input.input.input--full-width#password(
+            type="password"
+            name="password"
+          )
+        +checkbox-label(
+          "remember-me",
+          "Запомнить меня",
+          "visually-hidden checkbox-input__toggle",
+          false
+        ).login__remember-me
+        button.button.button--primary.button--primary-labeled.login__submit(type="submit")
+          +icon("login").button__icon
+          .
+            Войти
+      // при сабмите формы восстановления пароля к login__restore-password добавить класс login__restore-password--success
+      .login__restore-password
+        p.login__title Восстановление пароля
+        form.login__restore-password-form
+          p.login__form-group
+            label.label(for="mail") Электронная почта
+            input.input.input--full-width#mail(
+              type="email"
+              name="login"
+            )
+          button.button.button--primary.login__submit(type="submit") Восстановить
+        p.login__message На указанную почту было отправлено письмо с инструкциями по восстановлению пароля
+    
+    .login__bottom
+      p(class="login__tip")
+        | Если у Вас нет доступа к личному кабинету, позвоните по телефону &nbsp;
+        nobr (812) 532-55-60
+        | с 9:00 до 22:00
+        
+    img.login__img(
+      src="img/login.png"
+    )
+  // сообщение об ошибке. добавляется .active
+  .message Неправильный логин или пароль.
+block scripts
+  script(src="js/jquery-3.3.1.min.js")
+  script(src="js/main.js")
+  script(src="js/svg4everybody.js")

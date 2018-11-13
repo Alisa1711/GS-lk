@@ -2,17 +2,20 @@ extends pug/layout
 prepend title
   - var title = "Оплаты"
 block content
-  .payments
-    table.table
-      thead.table__header
-        tr
-          th.table__header-cell.payments__date.active Дата
-          th.table__header-cell.payments__number.text-align-r Номер
-          th.table__header-cell.payments__summ.text-align-r Сумма
-          th.table__header-cell.payments__descr Назначение платежа
+  .table.payments
+    .table__header.sort
+      .sort__item.sort__item--active.payments__date Дата
+      .sort__item.payments__number Номер
+      .sort__item.payments__summ Сумма
+      .payments__descr Назначение платежа
+    .table__body
       each payment in payments
-        tr.table__row.table__row--noborder
-          td.table__cell.payments__date= payment.date
-          td.table__cell.text-align-r= payment.number
-          td.table__cell.text-align-r= payment.summ
-          td.table__cell.payments__descr= payment.descr
+        .table__row.payment__item
+          .payments__date= payment.date
+          .payments__number= payment.number
+          .payments__summ
+            span.summ__summ 5 456
+            |
+            |
+            span.summ__penny .00
+          .payments__descr= payment.descr

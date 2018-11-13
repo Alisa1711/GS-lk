@@ -6,21 +6,46 @@
 @import "blocks/icon.scss";
 @import "blocks/button.scss";
 @import "blocks/input.scss";
-@import "blocks/nice-select.scss";
+@import "blocks/select.scss";
+@import "blocks/message.scss";
 
+@import "blocks/page-header.scss";
 @import "blocks/header.scss";
 @import "blocks/toolbar.scss";
 @import "blocks/account.scss";
+@import "blocks/login.scss";
 @import "blocks/order.scss";
-
 @import "blocks/table.scss";
 @import "blocks/documents.scss";
 @import "blocks/payments.scss";
+@import "blocks/add-order.scss";
+@import "blocks/form.scss";
+@import "blocks/label.scss";
+@import "blocks/modal.scss";
+@import "blocks/footer.scss";
 
-// .hidden {
-//   display: none;
-// }
+.hidden {
+  display: none;
+}
 
 .text-align-r {
   text-align: right;
+}
+
+.help:after {
+  content: "";
+
+  display: inline-block;
+
+  margin-left: 6px;
+
+  width: 16px;
+  height: 16px;
+
+  background-image: url("../img/help.svg");
+  opacity: 0.32;
+}
+
+.modal-opened {
+  overflow: hidden;
 }

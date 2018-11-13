@@ -1,2 +1,11 @@
 footer.footer
-  p footer
+  .footer__left
+    a.footer__phone(href="tel:+78123335252")
+      +icon("phone").footer__phone-icon
+      .
+         (812) 333-52-52
+    span.footer__time с 9:00 до 20:00
+  button.button.button--secondary.button--icon_left
+    +icon("download").button__icon
+    .
+      Excel

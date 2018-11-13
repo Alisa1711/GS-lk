@@ -1,34 +1,39 @@
-header.header
-  .header__inner.wrapper
-    a.logo(href="javascript:void(0);")
-      img(
-        class="logo__img"
-        src="img/logo.svg"
-        width="200"
-        height="48"
-        alt="Грузчиков Севрис"
-        )
+.header__inner.wrapper
+  if back
+    a.header__back(href="javascript:void(0);" title="Назад")
+      +icon("back")
+  a.logo(href="javascript:void(0);")
+    img(
+      class="logo__img"
+      src="img/logo.svg"
+      width="200"
+      height="48"
+      alt="Грузчиков Севрис"
+      )
+  unless title === "Добавление заказа"
     nav.header__nav
       ul.nav
         each item in mainMenu
           li.nav__item(class=(item === title ? 'active' : undefined))
             a.nav__link(href="javascript:void(0);")= item
-    a.button.button--stroke.button--icon_left.header__button(href='javascript:void(0);') Добавить заказ 
+    a.button.button--stroke.button--icon_left.header__button(href='javascript:void(0);') 
       +icon("plus")(class="button__icon")
-    .account-menu
-      button.button.button--icon_right.account-menu__button(type="button") ООО Рога и копыта
-        +icon("menu-down")(class="button__icon")
-      ul.account-menu__list#account-menu__list
-        //- li.account-menu__header ООО Рога и копыта
-        //-     +icon("menu-up")(class="account-menu__icon")
-        li
-          button.button.button--icon_right.account-menu__button(type="button") ООО Рога и копыта
-            +icon("menu-up")(class="button__icon")
-        each item in accountMenu
-          li.account-menu__item
-            span.account-menu__title= item.title
-            span.account-menu__value= item.value
-            if item.link
-              +link(item.link).account-menu__link
-        li
-          +link('Выйти')(class="account__logout account-menu__link")
+      .
+        Добавить заказ
+  .account-menu
+    button.button.button--icon_right.account-menu__button(type="button") ООО Рога и копыта
+      +icon("menu-down").button__icon
+    ul.account-menu__list#account-menu__list
+      li.account-menu__header ООО Рога и копыта
+          +icon("menu-up")(class="account-menu__icon")
+      each item in accountMenu
+        li.account-menu__item
+          span.account-menu__title= item.title
+          span.account-menu__value= item.value
+          if item.link
+            button.button.account-menu__link(
+                href="javascript:void(0);"
+                data-modal="#modal-change-password"
+              )= item.link
+      li
+        +link('Выйти')(class="account__logout account-menu__link")

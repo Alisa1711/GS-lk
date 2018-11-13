@@ -1,6 +1,6 @@
 .account-menu {
   position: relative;
-  z-index: 1;
+  margin-left: auto;
 }
 
 .account-menu__list {
@@ -25,18 +25,28 @@
 .account-menu__button {
   width: 100%;
   text-align: left;
-
-  .button__icon {
-    opacity: 0.24;
-  }
+  color: rgba(255, 255, 255, 0.7);
 
   &:hover {
-    background: rgba(0,0,0, 0.12);
+    color: $font-light-color;
+  }
+}
+
+.account-menu__header {
+  padding-left: 24px;
+  line-height: 48px;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: $secondary-bg-color;
+    @include transition;
   }
 }
 
 .account-menu__icon {
   position: absolute;
+  top: 20px;
   right: 12px;
 
   color: $font-secondary-color;
@@ -48,6 +58,10 @@
   font-size: 14px;
   line-height: 20px;
   white-space: nowrap;
+
+  .button {
+    font-size: 14px;
+  }
 }
 
 .account-menu__title {
@@ -63,6 +77,12 @@
 
 .account-menu__link {
   color: $accent-color;
+  @include transition;
+
+  &:hover {
+    color: $accent-color-hover;
+    @include transition;
+  }
 }
 
 .account__logout {

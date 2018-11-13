@@ -1,0 +1,21 @@
+.page-header--fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background-color: $body-color;
+  z-index: 2;
+
+  .toolbar {
+    box-shadow: 0px 1px 3px 0px rgba($accent-dark-color, 0.4);
+    background-color: lighten($body-color, 3);
+    @include transition-custom(0.2s);
+
+    .toolbar__inner {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      @include transition-custom(0.2s);
+    }
+  }
+}

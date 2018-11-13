@@ -1,7 +1,12 @@
+.payment__item {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 .payments__date,
 .payments__number,
 .payments__summ {
-  width: 128px;
+  min-width: 128px;
 }
 
 .payments__date {
@@ -11,4 +16,9 @@
 .payments__descr {
   padding-left: 48px;
   padding-right: 48px;
+}
+
+.payments__number,
+.payments__summ {
+  text-align: right;
 }

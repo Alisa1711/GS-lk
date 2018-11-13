@@ -1,0 +1,111 @@
+extends pug/layout
+prepend title
+  - var title = "Добавление заказа"
+block header
+  -var back = true;
+  header.page-header
+    .header
+      include pug/header
+block content
+  // если в системе нет заказов, то к .add-order .add-order--first-screen
+  .add-order
+    img.add-order__img(src="img/add-order.png")
+    form.form.add-order__form(method="post")
+      h1.add-order__title Добавление заказа
+      .form__group.form__group--date-time
+        label.label(for="date") Дата и время
+        .form__date-time
+          .input--icon_left
+            +icon("calendar").input__icon
+            input.input.input--date#date(value="14 сентября, пн")
+          input.input.input--time(placeholder="ЧЧ:ММ")
+        button.button.button-link.form__add-date.help(type="button")
+            +icon("calendar-plus").button-link__icon.icon--unfocused
+            .
+              Добавить дату
+      .form__group.form__group--narrow.form__phone
+        label(for="phone").label Tелефон
+        .select-input.input--full-width
+          .input--icon_right
+            input.input.input--full-width.select-input__input(
+              type="tel"
+              name="phone"
+              placeholder="+7")
+            button.button.select-input__close.icon--close.input__icon(type="button")
+          select.select.input.input--full-width.select-input__select
+            each phone in phones
+              option= phone
+            option(disabled value="add") Добавить телефон
+      .form__group.form__address
+        span.label Адрес
+        .add-order__map
+        .select-input.input--full-width
+          .input--icon_right
+            input.input.input--full-width.select-input__input(type="text" name="address")
+            button.button.select-input__close.icon--close.input__icon(type="button")
+          select.select.input.input--full-width#select-address
+            each address in addresses
+              option= address
+            option(disabled value="new-address") Добавить адрес
+      .form__group
+        span.label Количество исполнителей
+        .form__radio-group
+          - for (var i = 1; i < 9; i++) {
+              if i === 2
+                input(
+                  id = "workers-" + i
+                  type="radio"
+                  name="workers-count"
+                  class="visually-hidden"
+                  checked
+                )
+                label.form__workers-count(for="workers-" + i)= i
+              else 
+                input(
+                  id = "workers-" + i
+                  type="radio"
+                  name="workers-count"
+                  class="visually-hidden"
+                )
+                label.form__workers-count(for="workers-" + i)= i
+          - }
+          .form__workers-toggle
+            button.button.form__workers-button(
+              title="другое" type="button"
+              ) ...
+            input.input.form__workers-input(type="text")
+      .form__group.form__group--narrow
+        each checkbox in checkboxes 
+          +checkbox-label(
+            checkbox.id,
+            checkbox.label,
+            "visually-hidden",
+            (checkbox.id === "weight") ? true : false
+          ).help
+        .checkbox-input
+          +checkbox-label(
+            "mail-data",
+            "отправить данные на почту",
+            "visually-hidden checkbox-input__toggle",
+            false
+          ).help
+          .select-input.checkbox-input__input
+            .input--icon_right
+              input.input.input--full-width.select-input__input(type="mail" name="mail")
+              button.button.select-input__close.icon--close.input__icon(type="button")
+            select.select.input.select-input__select
+              each mail in mails
+                option= mail
+              option(disabled value="add") Добавить почту
+      button.button.button--primary.button--primary-labeled.add-order__submit
+        +icon("check").button__icon
+        .
+          Подтвердить
+    .add-order__add-address
+      h2.add-order__title Укажите новый адрес
+      .add-order__map
+      .add-order__buttons
+        button.button.button--primary.button--primary-small.add-order__ready-button(type="button") Готово
+        button.button(type="button").button--secondary.button--secondary-small.add-order__cancel-button Отмена
+    .add-order__footer
+block footer

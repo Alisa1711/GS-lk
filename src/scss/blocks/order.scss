@@ -59,7 +59,6 @@ $order-h-padding: 64px;
 
 .order__summ {
   margin-left: auto;
-  font-weight: 500;
 }
 
 .order__documents {
@@ -69,7 +68,7 @@ $order-h-padding: 64px;
 
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-left: $order-date-width + $order-h-padding - 8px;
+  padding-left: 248px;
   padding-right: 165px;
 
   font-size: 14px;
@@ -80,6 +79,7 @@ $order-h-padding: 64px;
 
   line-height: 40px;
   white-space: nowrap;
+  @include transition;
 }
 
 .order__document-link {
@@ -90,6 +90,31 @@ $order-h-padding: 64px;
 
   background-color: $secondary-bg-color;
   border-radius: $border-radius;
+  @include transition;
+
+  &:hover {
+    background-color: darken($secondary-bg-color, 5);
+    @include transition;
+  }
+}
+
+.order__docs-originals {
+  @include transition;
+  .icon {
+    margin-right: 6px;
+    margin-bottom: 2px;
+  }
+  &:hover {
+    color: $accent-color;
+    @include transition;
+  }
+}
+
+.order__docs-download {
+  &:hover {
+    color: $accent-color;
+    @include transition;
+  }
 }
 
 .order__footer {
@@ -109,6 +134,12 @@ $order-h-padding: 64px;
 .order__cancel {
   font-size: 14px;
   opacity: 0.7;
+  @include transition;
+
+  &:hover {
+    opacity: 1;
+    @include transition;
+  }
 }
 
 .order__action-button {
@@ -153,4 +184,12 @@ $order-h-padding: 64px;
   .order__footer {
     display: flex;
   }
+}
+
+.summ__rubles {
+  font-weight: 500;
+}
+
+.summ__penny {
+  color: $font-secondary-color;
 }

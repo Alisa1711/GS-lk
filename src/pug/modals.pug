@@ -1,0 +1,143 @@
+.modal#modal-change-password
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Изменение пароля
+      form.form.modal__form
+        .form__group
+          label.label(for="current-password") Текущий пароль
+          input.input.input--full-width#current-password(type="password")
+        .form__group
+          label.label(for="new-password") Новый пароль
+          input.input.input--full-width#new-password(type="password")
+        .form__group
+          label.label(for="repeat-password") Повторите новый пароль
+          input.input.input--full-width#repeat-password(type="password")
+        .form__group.modal__submit
+          button.button.button--primary.button--action
+            +icon("check").button__icon
+    .modal__footer
+      
+.modal#modal-originals
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Пришлем оригиналы документов
+      form.form.modal__form
+        .form__group
+          label.label(for="mail-index") Индекс
+          input.input.input--full-width#mail-index(type="text")
+        .form__group
+          label.label(for="post-address") Почтовый адрес
+          textarea.input.input--textarea.input--full-width#post-address(
+            type="text"
+            rows="3"
+            )
+        .form__group.modal__submit
+          button.button.button--primary.button--primary-labeled
+            +icon("check").button__icon
+            .
+              Запросить
+    .modal__footer
+      
+.modal#modal-cancel-order
+  .modal__inner
+    .modal__content.modal__content--center
+      button.button.icon--close.modal__close
+      p.modal__title Вы уверены, что хотите отменить заказ?
+        .modal__buttons
+          button.button.button--secondary.button--secondary-small Да
+          button.button.button--primary.button--primary-small Нет
+    .modal__footer
+      
+.modal#modal-bill
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Выставить счет
+      form.form.modal__form
+        .form__group
+          label.label(for="bill-summ") Сумма
+          input.input.input--full-width#bill-summ(
+            type="text"
+            value="412 345")
+        .form__group
+          +checkbox-label(
+            "bill-download",
+            "скачать в pdf",
+            "visually-hidden checkbox-action",
+            true
+          )
+          .checkbox-input
+            +checkbox-label(
+              "bill-mail-data",
+              "отправить данные на почту",
+              "visually-hidden checkbox-input__toggle checkbox-action",
+              false
+            ).help
+            .select-input.checkbox-input__input
+              .input--icon_right
+                input.input.input--full-width.select-input__input(type="mail" name="mail")
+                button.button.select-input__close.icon--close.input__icon(type="button")
+              select.select.input.select-input__select
+                each mail in mails
+                  option= mail
+                option(disabled value="add") Добавить почту
+        .form__group.modal__submit
+          button.button.button--primary.button--action
+            +icon("check").button__icon
+    .modal__footer
+
+.modal#modal-act
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Акст сверки
+      form.form.modal__form
+        .form__group
+          label.label Период
+          select.input.select
+            - var ranges = ["Месяц", "Квартал", "Год", "Диапазон..."]
+              each item in ranges
+                option(
+                data-display=(item ==="Диапазон...") ? "23 фев – 14 май" : undefined
+                )= item
+        .form__group
+          +checkbox-label(
+            "act-download",
+            "скачать в pdf",
+            "visually-hidden checkbox-action",
+            true
+          )
+          .checkbox-input
+            +checkbox-label(
+              "act-mail-data",
+              "отправить данные на почту",
+              "visually-hidden checkbox-input__toggle checkbox-action",
+              false
+            ).help
+            .select-input.checkbox-input__input
+              .input--icon_right
+                input.input.input--full-width.select-input__input(type="mail" name="mail")
+                button.button.select-input__close.icon--close.input__icon(type="button")
+              select.select.input.select-input__select
+                each mail in mails
+                  option= mail
+                option(disabled value="add") Добавить почту
+        .form__group.modal__submit
+          button.button.button--primary.button--action
+            +icon("check").button__icon
+    .modal__footer
+           
+.modal#modal-code
+  // При вводе верной цифры, фокус автоматически переходит в следующий инпут. Когда введена последняя верная цифра, автоматически переходит в orders.html где показывается message "Ваш заказ успешно добавлен" 
+  .modal__inner.modal-code
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title.modal__title--mb_0 Подтвердите заказ
+      p.modal__text На номер +7(911)810-76-77 была отправлена SMS с кодом подтверждения заказа
+      form.form.modal-code__form
+        - for (var i = 0; i < 4; i++)
+          input.input.modal-code__input(maxlength="1")
+      p.modal__text Запросить код повторно можно через 54 сек
+    .modal__footer
