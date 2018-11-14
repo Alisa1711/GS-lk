@@ -1,3 +1,7 @@
+.login-page {
+  overflow: hidden;
+}
+
 .login {
   box-sizing: border-box;
   display: flex;
@@ -6,12 +10,12 @@
   top: 50%;
   left: 50%;
 
-  width: 976px / 1200px * 100%;
-  max-width: 976px;
+  width: 976px;
   min-height: 650px;
 
   background-color: $base-bg-color;
   box-shadow: $shadow-2;
+  border-radius: $border-radius;
 
   transform: translateX(-50%) translateY(-50%);
 }

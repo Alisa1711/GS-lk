@@ -19,3 +19,7 @@ block content
             |
             span.summ__penny .00
           .payments__descr= payment.descr
+append modals
+  include pug/modal/bill
+prepend message
+  // после отправки счета на почту "Акт отправлен на mail@mail.ru"

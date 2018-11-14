@@ -1,0 +1,42 @@
+.modal#modal-act
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Акт сверки
+      form.form.modal__form
+        .form__group
+          label.label Период
+          select.input.select
+            - var ranges = ["Месяц", "Квартал", "Год", "Диапазон..."]
+              each item in ranges
+                option(
+                data-display=(item ==="Диапазон...") ? "23 фев – 14 май" : undefined
+                )= item
+        .form__group
+          +checkbox-label(
+            "act-download",
+            "скачать в pdf",
+            "visually-hidden checkbox-action",
+            true
+          )
+          .checkbox-input
+            +checkbox-label(
+              "act-mail-data",
+              "отправить данные на почту",
+              "visually-hidden checkbox-input__toggle checkbox-action",
+              false,
+              true,
+              sendData.ariaLabel
+            )
+            .select-input.checkbox-input__input
+              .input--icon_right
+                input.input.input--full-width.select-input__input(type="mail" name="mail")
+                button.button.select-input__close.icon--close.input__icon(type="button")
+              select.select.input.select-input__select
+                each mail in mails
+                  option= mail
+                option(disabled value="add") Добавить почту
+        .form__group.modal__submit
+          button.button.button--primary.button--action
+            +icon("check").button__icon
+    .modal__footer

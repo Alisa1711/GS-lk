@@ -2,11 +2,11 @@ mixin link(name)
   a(class!=attributes.class href='javascript:void(0);')= name
   
 mixin icon(name)
-  svg(class="icon" class!=attributes.class)
+  svg(class="icon")&attributes(attributes)
     use(xlink:href="img/sprite.svg#" + name)
 
-mixin checkbox-label(id, label, inputClass, checked)
-  .labeled-checkbox(class!=attributes.class)
+mixin checkbox-label(id, label, inputClass, checked, help, message)
+  .labeled-checkbox&attributes(attributes)
     input(
       id= id
       type="checkbox"
@@ -17,3 +17,8 @@ mixin checkbox-label(id, label, inputClass, checked)
     span.checkbox
       +icon("check").checkbox__icon
     label(for= id).checkbox-label= label
+      if help
+        +help(message)
+  
+mixin help(message)
+  span.help(aria-label= message role="tooltip" data-microtip-position="right"  data-microtip-size="fit")

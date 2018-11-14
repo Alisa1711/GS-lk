@@ -20,6 +20,8 @@
   background-color: $base-bg-color;
   border-radius: $border-radius;
   box-shadow: $shadow-menu;
+
+  z-index: 3;
 }
 
 .account-menu__button {

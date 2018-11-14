@@ -154,7 +154,8 @@ $arrow_color: $gray !default;
     line-height: 56px;
     min-height: 56px;
 
-    &[data-value="add"] {
+    &[data-value="add"],
+    &[data-value="new-address"] {
       position: relative;
       padding-left: 56px;
       &::before {

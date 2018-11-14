@@ -8,6 +8,7 @@
 @import "blocks/input.scss";
 @import "blocks/select.scss";
 @import "blocks/message.scss";
+@import "blocks/tooltips.scss";
 
 @import "blocks/page-header.scss";
 @import "blocks/header.scss";
@@ -32,18 +33,23 @@
   text-align: right;
 }
 
-.help:after {
-  content: "";
-
+.help {
   display: inline-block;
-
   margin-left: 6px;
 
   width: 16px;
   height: 16px;
 
+  font-size: 13px;
+
   background-image: url("../img/help.svg");
   opacity: 0.32;
+  @include transition-custom(0.5s);
+
+  &:hover {
+    opacity: 1;
+    @include transition-custom(0.5s);
+  }
 }
 
 .modal-opened {

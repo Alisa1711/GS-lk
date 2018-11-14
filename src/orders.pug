@@ -3,6 +3,7 @@ prepend title
   - var title = 'Заказы'
 block content
   // сообщение об ошибке. добавляется .active
+  // message 
   each order in orders
     .order(class=(order.status === 'done' || order.status === 'canceled') ? "order--"+ order.status : undefined)
       .order__top
@@ -57,3 +58,11 @@ block content
           title= statusMap[order.status]
           )
             +icon("replay")
+append modals
+  include pug/modal/originals
+  include pug/modal/cancel-order
+prepend message
+  // после добавления заказа "Ваш заказ принят (.Данные отправлены на почту mail@mail.ru)"
+  // После изменения заказа "Ваш заказ изменен"
+  // после отмены заказа "Ваш заказ отменен"
+  // после изменения пароля "Ваш пароль успешно изменен"

@@ -85,7 +85,9 @@ gulp.task('js-extends', () => gulp.src(path.src.js.extends)
 
 gulp.task('scss', () => gulp.src(path.src.scss.main)
   .pipe(sourcemaps.init())
-  .pipe(sass())
+  .pipe(sass({
+    includePaths: 'node_modules'
+  }))
   .pipe(prefixer({ browsers: ['last 10 versions'] }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(path.build.css))

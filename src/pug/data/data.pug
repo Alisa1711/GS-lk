@@ -26,13 +26,19 @@
   var checkboxes = [
     {
       label: 'вес меньше 50 кг',
-      id: 'weight'
+      id: 'weight',
+      ariaLabel: 'Вес самой тяжелой единицы груза не превышает 50 кг'
     },
     {
       label: 'паспорта',
-      id: 'passports'
+      id: 'passports',
+      ariaLabel: 'Понадобятся документы исполнителей, удостоверяющие личность'
     }
   ]
+  
+  var sendData = {
+    ariaLabel: "Отпраить данные исполнителей на электронную почту"
+  }
   
   var accountMenu = [
     {

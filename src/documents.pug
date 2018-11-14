@@ -43,3 +43,9 @@ block content
             |
             span.summ__penny .00
           +icon("download").icon--unfocused.documents__download-icon
+append modals
+  include pug/modal/originals
+  include pug/modal/act
+prepend message
+  // после запроса оригиналов "Ваш запрос успешно отправлен"
+  // после отправки акта на почту "Акт отправлен на mail@mail.ru"

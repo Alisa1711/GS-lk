@@ -1,0 +1,21 @@
+.modal#modal-originals
+  .modal__inner
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title Пришлем оригиналы документов
+      form.form.modal__form
+        .form__group
+          label.label(for="mail-index") Индекс
+          input.input.input--full-width#mail-index(type="text")
+        .form__group
+          label.label(for="post-address") Почтовый адрес
+          textarea.input.input--textarea.input--full-width#post-address(
+            type="text"
+            rows="3"
+            )
+        .form__group.modal__submit
+          button.button.button--primary.button--primary-labeled
+            +icon("check").button__icon
+            .
+              Запросить
+    .modal__footer

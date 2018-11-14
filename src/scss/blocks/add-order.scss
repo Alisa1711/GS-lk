@@ -10,6 +10,8 @@
   box-shadow: $shadow-2;
 
   @include transition;
+
+  overflow: hidden;
 }
 
 .add-order__img {

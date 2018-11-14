@@ -13,7 +13,8 @@
   transform-origin: top center;
   transform: scaleY(1);
   @include transition;
-  z-index: 1;
+  overflow: visible;
+  z-index: 2;
 }
 
 .header__inner {

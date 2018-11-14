@@ -15,6 +15,7 @@ $(document).ready(() => {
     const tableHeader = $('.table__header');
 
     $(window).on('scroll', () => {
+      const pageHeaderHeight = `${pageHeader.outerHeight()}px`;
       if (ifPageTop()) {
         tableHeader.removeClass('table__header--scroll');
         pageHeader.removeClass('page-header--fix');
@@ -22,7 +23,7 @@ $(document).ready(() => {
       } else {
         pageHeader.addClass('page-header--fix');
         tableHeader.addClass('table__header--scroll');
-        $('body').css('padding-top', pageHeader.outerHeight());
+        $('body').css('padding-top', pageHeaderHeight);
       }
     });
   });
@@ -32,9 +33,17 @@ $(document).ready(() => {
     $(this).parent('.order').toggleClass('order--expanded');
   });
 
-  $('.account-menu__button, .account-menu__header, .account-menu__link').on('click', () => {
+  $('.account-menu__button, .account-menu__header, .account-menu__link').on('click', (evt) => {
     const menu = $('#account-menu__list');
+    evt.stopPropagation();
     menu.slideToggle(300);
+
+    $(document).on('click', function (e) {
+      if (e.currentTarget !== menu) {
+        menu.slideUp(300);
+        $(this).unbind('click');
+      }
+    });
   });
 
   // модальные окна
@@ -85,17 +94,13 @@ $(document).ready(() => {
     const selectAllCheckbox = $('.select-all');
     let indeterminate = false;
     const checkboxes = $('.select-item');
-    // const getChecked = () => {
-    //   let checked = 0;
-    //   checkboxes.each(function () {
-    //     checked = $(this).prop('checked') ? checked += 1 : checked;
-    //   });
-    //   return checked;
-    // };
 
-    selectAllCheckbox.on('change', function () {
+    selectAllCheckbox.on('click', function () {
       if (indeterminate) {
-        $(this).prop('checked', false);
+        $(this).prop({
+          indeterminate: false,
+          checked: false
+        });
       }
       checkboxes.prop('checked', $(this).prop('checked')).trigger('change');
       indeterminate = false;

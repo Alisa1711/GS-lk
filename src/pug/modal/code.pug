@@ -1,0 +1,12 @@
+.modal#modal-code
+  // При вводе верной цифры, фокус автоматически переходит в следующий инпут. Когда введена последняя верная цифра, автоматически переходит в orders.html где показывается message "Ваш заказ успешно добавлен" 
+  .modal__inner.modal-code
+    .modal__content
+      button.button.icon--close.modal__close
+      p.modal__title.modal__title--mb_0 Подтвердите заказ
+      p.modal__text На номер +7(911)810-76-77 была отправлена SMS с кодом подтверждения заказа
+      form.form.modal-code__form
+        - for (var i = 0; i < 4; i++)
+          input.input.modal-code__input(maxlength="1")
+      p.modal__text Запросить код повторно можно через 54 сек
+    .modal__footer

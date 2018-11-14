@@ -19,10 +19,11 @@ block content
             +icon("calendar").input__icon
             input.input.input--date#date(value="14 сентября, пн")
           input.input.input--time(placeholder="ЧЧ:ММ")
-        button.button.button-link.form__add-date.help(type="button")
-            +icon("calendar-plus").button-link__icon.icon--unfocused
-            .
-              Добавить дату
+        a.button.button-link.form__add-date
+          +icon("calendar-plus").button-link__icon.icon--unfocused
+          .
+            Добавить дату
+          +help("Оформить заказы с одинаковыми параметрами на разные даты")
       .form__group.form__group--narrow.form__phone
         label(for="phone").label Tелефон
         .select-input.input--full-width
@@ -80,15 +81,19 @@ block content
             checkbox.id,
             checkbox.label,
             "visually-hidden",
-            (checkbox.id === "weight") ? true : false
-          ).help
+            (checkbox.id === "weight") ? true : false,
+            true,
+            checkbox.ariaLabel
+          )
         .checkbox-input
           +checkbox-label(
             "mail-data",
             "отправить данные на почту",
             "visually-hidden checkbox-input__toggle",
-            false
-          ).help
+            false,
+            true,
+            "Отправьте данные исполнителей на электронную почту"
+          )
           .select-input.checkbox-input__input
             .input--icon_right
               input.input.input--full-width.select-input__input(type="mail" name="mail")
@@ -109,3 +114,5 @@ block content
         button.button(type="button").button--secondary.button--secondary-small.add-order__cancel-button Отмена
     .add-order__footer
 block footer
+append modals
+  include pug/modal/code

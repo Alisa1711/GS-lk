@@ -1,5 +1,5 @@
 .toolbar {
-  @include transition-custom(0.2s);
+  transition: background-color 0.2s;
 }
 
 .toolbar__inner {
@@ -11,8 +11,6 @@
   padding-bottom: 24px;
 
   width: $content-width;
-
-  @include transition-custom(0.2s);
 }
 
 .toolbar__search {
@@ -39,6 +37,7 @@
 
   width: 100%;
   height: 48px;
+  line-height: 48px;
 
   &:hover {
     border-color: transparent;
