@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Оплаты</title>
+</head>
+
+<body class="page">
+    <header class="page-header">
+        <div class="header">
+            <div class="header__inner wrapper"><a class="logo" href="javascript:void(0);"><img class="logo__img" src="img/logo.svg" width="200" height="48" alt="Грузчиков Севрис"></a>
+                <nav class="header__nav">
+                    <ul class="nav">
+                        <li class="nav__item"><a class="nav__link" href="javascript:void(0);">Заказы</a></li>
+                        <li class="nav__item active"><a class="nav__link" href="javascript:void(0);">Оплаты</a></li>
+                        <li class="nav__item"><a class="nav__link" href="javascript:void(0);">Документы</a></li>
+                    </ul>
+                </nav><a class="button button--stroke button--icon_left header__button" href="javascript:void(0);"> <svg class="icon button__icon">
+                        <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>Добавить заказ</a>
+                <div class="account-menu"><button class="button button--icon_right account-menu__button" type="button">ООО Рога и копыта<svg class="icon button__icon">
+                            <use xlink:href="img/sprite.svg#menu-down"></use>
+                        </svg></button>
+                    <ul class="account-menu__list" id="account-menu__list">
+                        <li class="account-menu__header">ООО Рога и копыта<svg class="icon account-menu__icon">
+                                <use xlink:href="img/sprite.svg#menu-up"></use>
+                            </svg></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Баланс</span><span class="account-menu__value">12 000 руб.</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Почта</span><span class="account-menu__value">kostantin@konstantinopolsky.ru</span><button class="button account-menu__link" href="javascript:void(0);" data-modal="#modal-change-password">Изменить пароль</button></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Телефон</span><span class="account-menu__value">+7 (911) 810-76-77</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">ИНН</span><span class="account-menu__value">78013455321</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Договор</span><span class="account-menu__value">ПРР.2017 - 05 от 01.02.2017</span></li>
+                        <li><a class="account__logout account-menu__link" href="javascript:void(0);">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar__inner">
+                <div class="toolbar__search toolbar__item"><svg class="icon toolbar__search-icon">
+                        <use xlink:href="img/sprite.svg#magnify"></use>
+                    </svg><input class="input toolbar__search-input" type="search" placeholder="Поиск"></div><button class="button button--secondary button--icon_left toolbar__item" data-modal="#modal-bill"><svg class="icon button__icon button__icon--accent">
+                        <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>Счет</button><select class="dropdown-button toolbar__item toolbar__documents">
+                    <option>Все документы</option>
+                    <option>Акты</option>
+                    <option>Счета</option>
+                    <option>Счета-фактуры</option>
+                </select><select class="dropdown-button toolbar__item toolbar__filter-range">
+                    <option>Месяц</option>
+                    <option>Квартал</option>
+                    <option>Год</option>
+                    <option data-display="23 фев 17 – 14 май">Диапазон...</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main>
+            <div class="table payments">
+                <div class="table__header sort">
+                    <div class="sort__item sort__item--active payments__date">Дата</div>
+                    <div class="sort__item payments__number">Номер</div>
+                    <div class="sort__item payments__summ">Сумма</div>
+                    <div class="payments__descr">Назначение платежа</div>
+                </div>
+                <div class="table__body">
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                    <div class="table__row payment__item">
+                        <div class="payments__date">11 май</div>
+                        <div class="payments__number">821</div>
+                        <div class="payments__summ"><span class="summ__summ">5 456</span>
+                            <span class="summ__penny">.00</span></div>
+                        <div class="payments__descr">Размещение рекламных материалов на проекте Яндекс.Директ .СЧЕТ № Б-425941424-1 от 12 октября 2017 г. В т.ч. НДС 18% - 762,71 руб.</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__left"><a class="footer__phone" href="tel:+78123335252"><svg class="icon footer__phone-icon">
+                        <use xlink:href="img/sprite.svg#phone"></use>
+                    </svg>(812) 333-52-52</a><span class="footer__time">с 9:00 до 20:00</span></div><button class="button button--secondary button--icon_left"><svg class="icon button__icon">
+                    <use xlink:href="img/sprite.svg#download"></use>
+                </svg>Excel</button>
+        </footer>
+    </div>
+    <div class="modal" id="modal-change-password">
+        <div class="modal__inner">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Изменение пароля</p>
+                <form class="form modal__form">
+                    <div class="form__group"><label class="label" for="current-password">Текущий пароль</label><input class="input input--full-width" id="current-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="new-password">Новый пароль</label><input class="input input--full-width" id="new-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="repeat-password">Повторите новый пароль</label><input class="input input--full-width" id="repeat-password" type="password"></div>
+                    <div class="form__group modal__submit"><button class="button button--primary button--action"><svg class="icon button__icon">
+                                <use xlink:href="img/sprite.svg#check"></use>
+                            </svg></button></div>
+                </form>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div>
+    <div class="modal" id="modal-bill">
+        <div class="modal__inner">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Выставить счет</p>
+                <form class="form modal__form">
+                    <div class="form__group"><label class="label" for="bill-summ">Сумма</label><input class="input input--full-width" id="bill-summ" type="text" value="412 345"></div>
+                    <div class="form__group">
+                        <div class="labeled-checkbox"><input class="visually-hidden checkbox-action" id="bill-download" type="checkbox" name="bill-download" checked="checked" /><span class="checkbox"><svg class="icon checkbox__icon">
+                                    <use xlink:href="img/sprite.svg#check"></use>
+                                </svg></span><label class="checkbox-label" for="bill-download">скачать в pdf</label></div>
+                        <div class="checkbox-input">
+                            <div class="labeled-checkbox"><input class="visually-hidden checkbox-input__toggle checkbox-action" id="bill-mail-data" type="checkbox" name="bill-mail-data" /><span class="checkbox"><svg class="icon checkbox__icon">
+                                        <use xlink:href="img/sprite.svg#check"></use>
+                                    </svg></span><label class="checkbox-label" for="bill-mail-data">отправить на почту</label></div>
+                            <div class="select-input checkbox-input__input">
+                                <div class="input--icon_right"><input class="input input--full-width select-input__input" type="mail" name="mail"><button class="button select-input__close icon--close input__icon" type="button"></button></div><select class="select input select-input__select">
+                                    <option>mail@mail.ru</option>
+                                    <option>mail@mail.ru</option>
+                                    <option>mail@mail.ru</option>
+                                    <option disabled value="add">Добавить почту</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__group modal__submit"><button class="button button--primary button--action"><svg class="icon button__icon">
+                                <use xlink:href="img/sprite.svg#check"></use>
+                            </svg></button></div>
+                </form>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div><!-- после отправки счета на почту "Акт отправлен на mail@mail.ru"-->
+    <div class="message">Пароль успешно изменен.</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/svg4everybody.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+</body>
+
+</html>

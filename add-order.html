@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Добавление заказа</title>
+</head>
+
+<body class="page">
+    <header class="page-header">
+        <div class="header">
+            <div class="header__inner wrapper"><a class="header__back" href="javascript:void(0);" title="Назад"><svg class="icon">
+                        <use xlink:href="img/sprite.svg#back"></use>
+                    </svg></a><a class="logo" href="javascript:void(0);"><img class="logo__img" src="img/logo.svg" width="200" height="48" alt="Грузчиков Севрис"></a>
+                <div class="account-menu"><button class="button button--icon_right account-menu__button" type="button">ООО Рога и копыта<svg class="icon button__icon">
+                            <use xlink:href="img/sprite.svg#menu-down"></use>
+                        </svg></button>
+                    <ul class="account-menu__list" id="account-menu__list">
+                        <li class="account-menu__header">ООО Рога и копыта<svg class="icon account-menu__icon">
+                                <use xlink:href="img/sprite.svg#menu-up"></use>
+                            </svg></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Баланс</span><span class="account-menu__value">12 000 руб.</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Почта</span><span class="account-menu__value">kostantin@konstantinopolsky.ru</span><button class="button account-menu__link" href="javascript:void(0);" data-modal="#modal-change-password">Изменить пароль</button></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Телефон</span><span class="account-menu__value">+7 (911) 810-76-77</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">ИНН</span><span class="account-menu__value">78013455321</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Договор</span><span class="account-menu__value">ПРР.2017 - 05 от 01.02.2017</span></li>
+                        <li><a class="account__logout account-menu__link" href="javascript:void(0);">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main>
+            <!-- если в системе нет заказов, то к .add-order .add-order--first-screen-->
+            <div class="add-order"><img class="add-order__img" src="img/add-order.png">
+                <form class="form add-order__form" method="post">
+                    <h1 class="add-order__title">Добавление заказа</h1>
+                    <div class="form__group form__group--date-time"><label class="label" for="date">Дата и время</label>
+                        <div class="form__date-time">
+                            <div class="input--icon_left"><svg class="icon input__icon">
+                                    <use xlink:href="img/sprite.svg#calendar"></use>
+                                </svg><input class="input input--date" id="date" value="14 сентября, пн"></div><input class="input input--time" placeholder="ЧЧ:ММ">
+                        </div><a class="button button-link form__add-date"><svg class="icon button-link__icon icon--unfocused">
+                                <use xlink:href="img/sprite.svg#calendar-plus"></use>
+                            </svg>Добавить дату<span class="help" aria-label="Оформить заказы с одинаковыми параметрами на разные даты" role="tooltip" data-microtip-position="right" data-microtip-size="fit"></span></a>
+                    </div>
+                    <div class="form__group form__group--narrow form__phone"><label class="label" for="phone">Tелефон</label>
+                        <div class="select-input input--full-width">
+                            <div class="input--icon_right"><input class="input input--full-width select-input__input" type="tel" name="phone" placeholder="+7"><button class="button select-input__close icon--close input__icon" type="button"></button></div><select class="select input input--full-width select-input__select">
+                                <option>+7 (911) 810-76-77</option>
+                                <option>+7 (911) 810-76-77</option>
+                                <option>+7 (911) 810-76-77</option>
+                                <option disabled value="add">Добавить телефон</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__group form__address"><span class="label">Адрес</span>
+                        <div class="add-order__map"></div>
+                        <div class="select-input input--full-width">
+                            <div class="input--icon_right"><input class="input input--full-width select-input__input" type="text" name="address"><button class="button select-input__close icon--close input__icon" type="button"></button></div><select class="select input input--full-width" id="select-address">
+                                <option>посёлок городского типа Тлюстенхабль, улица...</option>
+                                <option>посёлок городского типа Тлюстенхабль, улица...</option>
+                                <option>посёлок городского типа Тлюстенхабль, улица...</option>
+                                <option disabled value="new-address">Добавить адрес</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__group"><span class="label">Количество исполнителей</span>
+                        <div class="form__radio-group"><input class="visually-hidden" id="workers-1" type="radio" name="workers-count"><label class="form__workers-count" for="workers-1">1</label><input class="visually-hidden" id="workers-2" type="radio" name="workers-count" checked><label class="form__workers-count" for="workers-2">2</label><input class="visually-hidden" id="workers-3" type="radio" name="workers-count"><label class="form__workers-count" for="workers-3">3</label><input class="visually-hidden" id="workers-4" type="radio" name="workers-count"><label class="form__workers-count" for="workers-4">4</label><input class="visually-hidden" id="workers-5" type="radio" name="workers-count"><label class="form__workers-count" for="workers-5">5</label><input class="visually-hidden" id="workers-6" type="radio" name="workers-count"><label class="form__workers-count" for="workers-6">6</label><input class="visually-hidden" id="workers-7" type="radio" name="workers-count"><label class="form__workers-count" for="workers-7">7</label><input class="visually-hidden" id="workers-8" type="radio" name="workers-count"><label class="form__workers-count" for="workers-8">8</label>
+                            <div class="form__workers-toggle"><button class="button form__workers-button" title="другое" type="button">...</button><input class="input form__workers-input" type="text"></div>
+                        </div>
+                    </div>
+                    <div class="form__group form__group--narrow">
+                        <div class="labeled-checkbox"><input class="visually-hidden" id="weight" type="checkbox" name="weight" checked="checked" /><span class="checkbox"><svg class="icon checkbox__icon">
+                                    <use xlink:href="img/sprite.svg#check"></use>
+                                </svg></span><label class="checkbox-label" for="weight">вес меньше 50 кг<span class="help" aria-label="Вес самой тяжелой единицы груза не превышает 50 кг" role="tooltip" data-microtip-position="right" data-microtip-size="fit"></span></label></div>
+                        <div class="labeled-checkbox"><input class="visually-hidden" id="passports" type="checkbox" name="passports" /><span class="checkbox"><svg class="icon checkbox__icon">
+                                    <use xlink:href="img/sprite.svg#check"></use>
+                                </svg></span><label class="checkbox-label" for="passports">паспорта<span class="help" aria-label="Понадобятся документы исполнителей, удостоверяющие личность" role="tooltip" data-microtip-position="right" data-microtip-size="fit"></span></label></div>
+                        <div class="checkbox-input">
+                            <div class="labeled-checkbox"><input class="visually-hidden checkbox-input__toggle" id="mail-data" type="checkbox" name="mail-data" /><span class="checkbox"><svg class="icon checkbox__icon">
+                                        <use xlink:href="img/sprite.svg#check"></use>
+                                    </svg></span><label class="checkbox-label" for="mail-data">отправить данные на почту<span class="help" aria-label="Отправьте данные исполнителей на электронную почту" role="tooltip" data-microtip-position="right" data-microtip-size="fit"></span></label></div>
+                            <div class="select-input checkbox-input__input">
+                                <div class="input--icon_right"><input class="input input--full-width select-input__input" type="mail" name="mail"><button class="button select-input__close icon--close input__icon" type="button"></button></div><select class="select input select-input__select">
+                                    <option>mail@mail.ru</option>
+                                    <option>mail@mail.ru</option>
+                                    <option>mail@mail.ru</option>
+                                    <option disabled value="add">Добавить почту</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div><button class="button button--primary button--primary-labeled add-order__submit"><svg class="icon button__icon">
+                            <use xlink:href="img/sprite.svg#check"></use>
+                        </svg>Подтвердить</button>
+                </form>
+                <div class="add-order__add-address">
+                    <h2 class="add-order__title">Укажите новый адрес</h2>
+                    <div class="add-order__map"></div>
+                    <div class="add-order__buttons"><button class="button button--primary button--primary-small add-order__ready-button" type="button">Готово</button><button class="button button--secondary button--secondary-small add-order__cancel-button" type="button">Отмена</button></div>
+                </div>
+                <div class="add-order__footer"></div>
+            </div>
+        </main>
+    </div>
+    <div class="modal" id="modal-change-password">
+        <div class="modal__inner">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Изменение пароля</p>
+                <form class="form modal__form">
+                    <div class="form__group"><label class="label" for="current-password">Текущий пароль</label><input class="input input--full-width" id="current-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="new-password">Новый пароль</label><input class="input input--full-width" id="new-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="repeat-password">Повторите новый пароль</label><input class="input input--full-width" id="repeat-password" type="password"></div>
+                    <div class="form__group modal__submit"><button class="button button--primary button--action"><svg class="icon button__icon">
+                                <use xlink:href="img/sprite.svg#check"></use>
+                            </svg></button></div>
+                </form>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div>
+    <div class="modal" id="modal-code">
+        <!-- При вводе верной цифры, фокус автоматически переходит в следующий инпут. Когда введена последняя верная цифра, автоматически переходит в orders.html где показывается message "Ваш заказ успешно добавлен" -->
+        <div class="modal__inner modal-code">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title modal__title--mb_0">Подтвердите заказ</p>
+                <p class="modal__text">На номер +7(911)810-76-77 была отправлена SMS с кодом подтверждения заказа</p>
+                <form class="form modal-code__form"><input class="input modal-code__input" maxlength="1"><input class="input modal-code__input" maxlength="1"><input class="input modal-code__input" maxlength="1"><input class="input modal-code__input" maxlength="1"></form>
+                <p class="modal__text">Запросить код повторно можно через 54 сек</p>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div>
+    <div class="message">Пароль успешно изменен.</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/svg4everybody.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+</body>
+
+</html>

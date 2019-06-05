@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Заказы</title>
+</head>
+
+<body class="page">
+    <header class="page-header">
+        <div class="header">
+            <div class="header__inner wrapper"><a class="logo" href="javascript:void(0);"><img class="logo__img" src="img/logo.svg" width="200" height="48" alt="Грузчиков Севрис"></a>
+                <nav class="header__nav">
+                    <ul class="nav">
+                        <li class="nav__item active"><a class="nav__link" href="javascript:void(0);">Заказы</a></li>
+                        <li class="nav__item"><a class="nav__link" href="javascript:void(0);">Оплаты</a></li>
+                        <li class="nav__item"><a class="nav__link" href="javascript:void(0);">Документы</a></li>
+                    </ul>
+                </nav><a class="button button--stroke button--icon_left header__button" href="javascript:void(0);"> <svg class="icon button__icon">
+                        <use xlink:href="img/sprite.svg#plus"></use>
+                    </svg>Добавить заказ</a>
+                <div class="account-menu"><button class="button button--icon_right account-menu__button" type="button">ООО Рога и копыта<svg class="icon button__icon">
+                            <use xlink:href="img/sprite.svg#menu-down"></use>
+                        </svg></button>
+                    <ul class="account-menu__list" id="account-menu__list">
+                        <li class="account-menu__header">ООО Рога и копыта<svg class="icon account-menu__icon">
+                                <use xlink:href="img/sprite.svg#menu-up"></use>
+                            </svg></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Баланс</span><span class="account-menu__value">12 000 руб.</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Почта</span><span class="account-menu__value">kostantin@konstantinopolsky.ru</span><button class="button account-menu__link" href="javascript:void(0);" data-modal="#modal-change-password">Изменить пароль</button></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Телефон</span><span class="account-menu__value">+7 (911) 810-76-77</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">ИНН</span><span class="account-menu__value">78013455321</span></li>
+                        <li class="account-menu__item"><span class="account-menu__title">Договор</span><span class="account-menu__value">ПРР.2017 - 05 от 01.02.2017</span></li>
+                        <li><a class="account__logout account-menu__link" href="javascript:void(0);">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar__inner">
+                <div class="toolbar__search toolbar__item"><svg class="icon toolbar__search-icon">
+                        <use xlink:href="img/sprite.svg#magnify"></use>
+                    </svg><input class="input toolbar__search-input" type="search" placeholder="Поиск"></div><select class="dropdown-button toolbar__item toolbar__filter-range">
+                    <option>Месяц</option>
+                    <option>Квартал</option>
+                    <option>Год</option>
+                    <option data-display="23 фев 17 – 14 май">Диапазон...</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main>
+            <!-- сообщение об ошибке. добавляется .active-->
+            <!-- message -->
+            <div class="order">
+                <div class="order__top">
+                    <div class="order__date"><span class="order__day">Сегодня</span>
+                        <span class="order__time">11:00</span></div>
+                    <div class="order__info">
+                        <div class="order__address">Улица Латышских стрелков, д.31/3</div><span class="order__phone">+7 (940) 690-60-68</span>
+                    </div>
+                </div>
+                <div class="order__footer"><button class="button order__cancel" data-modal="#modal-cancel-order">Отменить заказ</button><button class="button button--primary button--action order__action-button" type="button" title="Изменить заказ"><svg class="icon">
+                            <use xlink:href="img/sprite.svg#pencil"></use>
+                        </svg></button></div>
+            </div>
+            <div class="order">
+                <div class="order__top">
+                    <div class="order__date"><span class="order__day">Завтра</span>
+                        <span class="order__time">11:00</span></div>
+                    <div class="order__info">
+                        <div class="order__address">Улица Латышских стрелков, д.31/3</div><span class="order__phone">+7 (940) 690-60-68</span><span class="order__workers">22 чел</span>
+                    </div>
+                </div>
+                <ul class="order__documents">
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__docs-download" href="javascript:void(0);">Скачать все</a></li>
+                    <li class="order__document-item"><a class="order__docs-originals" href="javascript:void(0);" data-modal="#modal-originals"><svg class="icon icon--unfocused">
+                                <use xlink:href="img/sprite.svg#document"></use>
+                            </svg>Оригиналы </a></li>
+                </ul>
+                <div class="order__footer"><button class="button order__cancel" data-modal="#modal-cancel-order">Отменить заказ</button><button class="button button--primary button--action order__action-button" type="button" title="Изменить заказ"><svg class="icon">
+                            <use xlink:href="img/sprite.svg#replay"></use>
+                        </svg></button></div>
+            </div>
+            <div class="order order--done">
+                <div class="order__top">
+                    <div class="order__date"><span class="order__day">Сегодня</span>
+                        <span class="order__time">11:00</span></div>
+                    <div class="order__info">
+                        <div class="order__address">Улица Латышских стрелков, д.31/3</div><span class="order__phone">+7 (940) 690-60-68</span><span class="order__workers">22 чел</span><span class="order__duration">3 часа 30 мин</span>
+                    </div>
+                    <div class="order__summ summ__rubles"> <span>1 456 789</span>
+                        <span class="order__penny summ__penny"> .36</span></div>
+                </div>
+                <ul class="order__documents">
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Акт 104</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет-фактура 23</a></li>
+                    <li class="order__document-item"><a class="order__docs-download" href="javascript:void(0);">Скачать все</a></li>
+                    <li class="order__document-item"><a class="order__docs-originals" href="javascript:void(0);" data-modal="#modal-originals"><svg class="icon icon--unfocused">
+                                <use xlink:href="img/sprite.svg#document"></use>
+                            </svg>Оригиналы </a></li>
+                </ul>
+                <div class="order__footer"><button class="button button--primary button--action order__action-button" type="button" title="Повторить заказ"><svg class="icon">
+                            <use xlink:href="img/sprite.svg#replay"></use>
+                        </svg></button></div>
+            </div>
+            <div class="order order--canceled">
+                <div class="order__top">
+                    <div class="order__date"><span class="order__day">Сегодня</span>
+                        <span class="order__time">11:00</span></div>
+                    <div class="order__info">
+                        <div class="order__address">Улица Латышских стрелков, д.31/3</div><span class="order__phone">+7 (940) 690-60-68</span><span class="order__workers">22 чел</span><span class="order__duration">3 часа 30 мин</span>
+                    </div>
+                    <div class="order__summ summ__rubles"> <span>1 456 789</span>
+                        <span class="order__penny summ__penny"> .36</span></div>
+                </div>
+                <ul class="order__documents">
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Акт 104</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет-фактура 23</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Акт 104</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет-фактура 23</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Акт 104</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет-фактура 23</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 25</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет 768</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Акт 104</a></li>
+                    <li class="order__document-item"><a class="order__document-link" href="javascript:void(0);">Счет-фактура 23</a></li>
+                    <li class="order__document-item"><a class="order__docs-download" href="javascript:void(0);">Скачать все</a></li>
+                    <li class="order__document-item"><a class="order__docs-originals" href="javascript:void(0);" data-modal="#modal-originals"><svg class="icon icon--unfocused">
+                                <use xlink:href="img/sprite.svg#document"></use>
+                            </svg>Оригиналы </a></li>
+                </ul>
+                <div class="order__footer"><button class="button button--primary button--action order__action-button" type="button" title="Повторить заказ"><svg class="icon">
+                            <use xlink:href="img/sprite.svg#replay"></use>
+                        </svg></button></div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__left"><a class="footer__phone" href="tel:+78123335252"><svg class="icon footer__phone-icon">
+                        <use xlink:href="img/sprite.svg#phone"></use>
+                    </svg>(812) 333-52-52</a><span class="footer__time">с 9:00 до 20:00</span></div><button class="button button--secondary button--icon_left"><svg class="icon button__icon">
+                    <use xlink:href="img/sprite.svg#download"></use>
+                </svg>Excel</button>
+        </footer>
+    </div>
+    <div class="modal" id="modal-change-password">
+        <div class="modal__inner">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Изменение пароля</p>
+                <form class="form modal__form">
+                    <div class="form__group"><label class="label" for="current-password">Текущий пароль</label><input class="input input--full-width" id="current-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="new-password">Новый пароль</label><input class="input input--full-width" id="new-password" type="password"></div>
+                    <div class="form__group"><label class="label" for="repeat-password">Повторите новый пароль</label><input class="input input--full-width" id="repeat-password" type="password"></div>
+                    <div class="form__group modal__submit"><button class="button button--primary button--action"><svg class="icon button__icon">
+                                <use xlink:href="img/sprite.svg#check"></use>
+                            </svg></button></div>
+                </form>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div>
+    <div class="modal" id="modal-originals">
+        <div class="modal__inner">
+            <div class="modal__content"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Пришлем оригиналы документов</p>
+                <form class="form modal__form">
+                    <div class="form__group"><label class="label" for="mail-index">Индекс</label><input class="input input--full-width" id="mail-index" type="text"></div>
+                    <div class="form__group"><label class="label" for="post-address">Почтовый адрес</label><textarea class="input input--textarea input--full-width" id="post-address" type="text" rows="3"></textarea></div>
+                    <div class="form__group modal__submit"><button class="button button--primary button--primary-labeled"><svg class="icon button__icon">
+                                <use xlink:href="img/sprite.svg#check"></use>
+                            </svg>Запросить</button></div>
+                </form>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div>
+    <div class="modal" id="modal-cancel-order">
+        <div class="modal__inner">
+            <div class="modal__content modal__content--center"><button class="button icon--close modal__close"></button>
+                <p class="modal__title">Вы уверены, что хотите отменить заказ?<div class="modal__buttons"><button class="button button--secondary button--secondary-small">Да</button><button class="button button--primary button--primary-small">Нет</button></div>
+                </p>
+            </div>
+            <div class="modal__footer"></div>
+        </div>
+    </div><!-- после добавления заказа "Ваш заказ принят (.Данные отправлены на почту mail@mail.ru)"-->
+    <!-- После изменения заказа "Ваш заказ изменен"-->
+    <!-- после отмены заказа "Ваш заказ отменен"-->
+    <!-- после изменения пароля "Ваш пароль успешно изменен"-->
+    <div class="message">Пароль успешно изменен.</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/svg4everybody.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Вход в личный кабинет</title>
+</head>
+
+<body class="login-page">
+    <div class="login">
+        <div class="login__content"><img class="login__logo" src="img/logo--dark.svg" width="200" height="48" alt="Грузчиков Сервис">
+            <form class="login__form">
+                <p class="login__title">Личный кабинет</p>
+                <p class="login__form-group"><label class="label" for="login">Логин</label><!-- класс ошибки input-error--><input class="input input--full-width" id="login" type="text" name="login"></p>
+                <p class="login__form-group">
+                    <div class="login__password-label"><label class="label" for="password">Пароль</label><a class="input-link restore-password" href="javascript:void(0);">Вспомнить пароль</a></div><input class="input input--full-width" id="password" type="password" name="password">
+                </p>
+                <div class="labeled-checkbox login__remember-me"><input class="visually-hidden checkbox-input__toggle" id="remember-me" type="checkbox" name="remember-me" /><span class="checkbox"><svg class="icon checkbox__icon">
+                            <use xlink:href="img/sprite.svg#check"></use>
+                        </svg></span><label class="checkbox-label" for="remember-me">Запомнить меня</label></div><button class="button button--primary button--primary-labeled login__submit" type="submit"><svg class="icon button__icon">
+                        <use xlink:href="img/sprite.svg#login"></use>
+                    </svg>Войти</button>
+            </form><!-- при сабмите формы восстановления пароля к login__restore-password добавить класс login__restore-password--success-->
+            <div class="login__restore-password">
+                <p class="login__title">Восстановление пароля</p>
+                <form class="login__restore-password-form">
+                    <p class="login__form-group"><label class="label" for="mail">Электронная почта</label><input class="input input--full-width" id="mail" type="email" name="login"></p><button class="button button--primary login__submit" type="submit">Восстановить</button>
+                </form>
+                <p class="login__message">На указанную почту было отправлено письмо с инструкциями по восстановлению пароля</p>
+            </div>
+        </div>
+        <div class="login__bottom">
+            <p class="login__tip">Если у Вас нет доступа к личному кабинету, позвоните по телефону &nbsp;<nobr>(812) 532-55-60</nobr>с 9:00 до 22:00</p>
+        </div><img class="login__img" src="img/login.png">
+    </div><!-- сообщение об ошибке. добавляется .active-->
+    <div class="message">Неправильный логин или пароль.</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/svg4everybody.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+</body>
+
+</html>
